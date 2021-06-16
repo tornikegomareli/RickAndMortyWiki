@@ -9,14 +9,10 @@ import Alamofire
 import RxSwift
 
 class RestClient {
-  internal let manager: Session
-
-  init () {
-    manager = Session.default
-  }
+  init () {}
 
   public func fetch<Request: Requestable>(request: Request.Type, withParams params: Parameters? = [:]) -> Observable<Request.Element> {
-    let req = request.init(manager: manager, param: params)
+    let req = request.init(param: params)
     return req.toObservable()
   }
 }

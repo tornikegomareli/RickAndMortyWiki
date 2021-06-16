@@ -15,8 +15,6 @@ enum RequestableResponseType {
 protocol Requestable: URLRequestConvertible {
   associatedtype Element where Element: Decodable
 
-  var sessionManager: Session { get }
-
   var expectedContentType: [String] { get }
 
   var basePath: String { get }
@@ -37,7 +35,7 @@ protocol Requestable: URLRequestConvertible {
 
   func decodeError(response: DataResponse<Data, AFError>) -> MortyNetworkError
 
-  init(manager: Session, param: Parameters?)
+  init(param: Parameters?)
 }
 
 /// Conform URLConvitible from Alamofire
