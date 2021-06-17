@@ -22,7 +22,7 @@ struct LocationRequest: Requestable {
   }
 
   var parameterEncoding: ParameterEncoding {
-    return JSONEncoding.default
+    return URLEncoding.default
   }
 
   // Init

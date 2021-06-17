@@ -18,11 +18,11 @@ struct EpisodeRequest: Requestable {
   }
 
   var endpoint: String {
-    return "/episode"
+    return "episode"
   }
 
   var parameterEncoding: ParameterEncoding {
-    return JSONEncoding.default
+    return URLEncoding.default
   }
 
   // Init

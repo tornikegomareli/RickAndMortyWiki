@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Episodes: Codable {
+public struct Episodes: Codable {
     let info: EpisodeInfo
     let results: [Episode]
 }
@@ -20,7 +20,7 @@ struct EpisodeInfo: Codable {
 }
 
 // MARK: - Result
-struct Episode: Codable {
+public struct Episode: Codable {
     let id: Int
     let name, airDate, episode: String
     let characters: [String]
