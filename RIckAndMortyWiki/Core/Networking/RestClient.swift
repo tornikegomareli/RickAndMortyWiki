@@ -15,4 +15,11 @@ class RestClient {
     let req = request.init(param: params)
     return req.toObservable()
   }
+
+  public func fetch<Request: Requestable>(request: Request.Type, withParams params: Parameters? = [:], withParamsInPath: String) -> Observable<Request.Element> {
+    var req = request.init(param: params)
+    req.endpoint = req.endpoint + "/\(withParamsInPath)"
+    return req.toObservable()
+  }
 }
+

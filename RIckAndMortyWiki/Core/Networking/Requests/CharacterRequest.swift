@@ -9,16 +9,14 @@ import Foundation
 import Alamofire
 
 struct CharacterRequest: Requestable {
-  typealias Element = Characters
+  var endpoint: String =  "character"
+  
+  typealias Element = MultipleCharacters
 
   var param: Parameters?
 
   var httpMethod: HTTPMethod {
     return .get
-  }
-
-  var endpoint: String {
-    return "/character"
   }
 
   var parameterEncoding: ParameterEncoding {

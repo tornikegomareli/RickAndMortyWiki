@@ -3,7 +3,7 @@
 //  RIckAndMortyWiki
 //
 //  Created by Tornike Gomareli on 17.06.21.
-//  
+//
 //
 
 import RxSwift
@@ -22,6 +22,8 @@ public struct EpisodesViewModelParams {
 /// Every method, event, delegate which will be called from ViewController -> ViewModel
 public protocol EpisodesViewModelInput {
   func viewDidLoad()
+  func didRequestOnRowClick(model: Episode)
+  func fetchNextPage()
 }
 
 /// Output Protocol
@@ -43,12 +45,13 @@ public enum EpisodesViewModelOutputAction {
 
 /// Enum types which will be throwed by route Observable
 public enum EpisodesViewModelRoute {
+  case routeToCharacters(model: Episode)
 }
 
 /// Default View Model Implementation
 public class DefaultEpisodesViewModel {
   @Injected private var repository:EpisodeRepositoring
-  
+  public var dataSourceInfo: EpisodeInfo!
   private let actionSubject = PublishSubject<EpisodesViewModelOutputAction>()
   private let routeSubject = PublishSubject<EpisodesViewModelRoute>()
   private let dataSourceSubject = SubjectRelay<[Episode]>(value: [])
@@ -71,6 +74,7 @@ extension DefaultEpisodesViewModel: EpisodesViewModel {
         .subscribe(onNext: { result in
           self.actionSubject.onNext(.hideIndicator)
           self.dataSourceSubject.accept(result.results)
+          self.dataSourceInfo = result.info
         },
         onError: { error in
           print(error)
@@ -79,4 +83,34 @@ extension DefaultEpisodesViewModel: EpisodesViewModel {
           self.actionSubject.onNext(.hideIndicator)
         })
   }
+  
+  public func fetchNextPage() {
+    let nextPage = dataSourceInfo.next
+    let parsedPage = nextPage?.parseNextPage()
+    guard let safeParsedPage = parsedPage else {
+      return
+    }
+    actionSubject.onNext(.showIndicator)
+    _ = repository.netPage(page: safeParsedPage)
+        .subscribe(onNext: { result in
+          self.actionSubject.onNext(.hideIndicator)
+          var currentDataSource = self.dataSourceSubject.value
+          result.results.forEach { item in
+            currentDataSource.append(item)
+          }
+          self.dataSourceSubject.accept(currentDataSource)
+          self.dataSourceInfo = result.info
+        },
+        onError: { error in
+          print(error)
+        },
+        onCompleted: {
+          self.actionSubject.onNext(.hideIndicator)
+        })
+  }
+  
+  public func didRequestOnRowClick(model: Episode) {
+    routeSubject.onNext(.routeToCharacters(model: model))
+  }
 }
+

@@ -12,22 +12,24 @@ public class EpisodesViewController: BaseViewController, Storyboarded {
   @IBOutlet weak var tableView: UITableView!
   
   lazy var headerView: StretchyTableViewHeaderView = {
-    var header = StretchyTableViewHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 150))
+    var header = StretchyTableViewHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 1.8))
     header.imageView.makeRounded()
-    header.imageView.image = UIImage(named: "rickAndMortyCover")
+    header.imageView.image = UIImage(named: "mainPicRick")
     return header
   }()
   
-  public var viewModel: EpisodesViewModel = DefaultEpisodesViewModel()
+  public var viewModel: DefaultEpisodesViewModel = DefaultEpisodesViewModel()
   internal lazy var navigator = EpisodesNavigator(viewController: self)
 
     // MARK: - Lifecycle methods
   public override func viewDidLoad() {
     super.viewDidLoad()
-    
+    var baseNavigationController = self.navigationController as! BaseNavigationController
+    baseNavigationController.hideNavigationBar()
     root: do {
       bind(to: viewModel)
       setup()
+      
     }
     
     viewModel.viewDidLoad()
@@ -67,6 +69,7 @@ public class EpisodesViewController: BaseViewController, Storyboarded {
     self.tableView.delegate = self
     self.tableView.dataSource = self
     self.tableView.register(UINib(nibName: "EpisodeCell", bundle: nil), forCellReuseIdentifier: "EpisodeCell")
+    self.tableView.separatorStyle = .none
   }
   
   private func setupHeaderOnTableView() {
@@ -80,9 +83,9 @@ public class EpisodesViewController: BaseViewController, Storyboarded {
   private func didReceive(action: EpisodesViewModelOutputAction){
     switch action {
       case .hideIndicator:
-        print("hide indicator")
+        stopIndicatingActivity()
       case .showIndicator:
-        print("show indicator")
+        startIndicatingActivity()
     }
   }
 
@@ -90,6 +93,7 @@ public class EpisodesViewController: BaseViewController, Storyboarded {
   /// Subscribes to each observable
   /// Then function uses Navigator, to navigate correct destination
   private func didReceive(route: EpisodesViewModelRoute) {
+    navigator.requestNavigation(to: route, animated: true)
   }
 
   /// Invoked when deallocated

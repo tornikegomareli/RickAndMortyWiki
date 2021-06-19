@@ -7,13 +7,17 @@
 
 import UIKit
 
-class BaseNavigationController: UINavigationController {
+class BaseNavigationController: UINavigationController, Storyboarded {
   var onDismissBlock: (() -> Void)?
   open override func viewDidDisappear(_ animated: Bool) {
     super.viewDidDisappear(animated)
     if isBeingDismissed {
       onDismissBlock?()
     }
+  }
+  
+  func hideNavigationBar() {
+    self.setNavigationBarHidden(true, animated: false)
   }
   
   override var preferredStatusBarStyle: UIStatusBarStyle {

@@ -13,10 +13,10 @@ public struct Episodes: Codable {
 }
 
 // MARK: - Info
-struct EpisodeInfo: Codable {
+public struct EpisodeInfo: Codable {
     let count, pages: Int
-    let next: String
-    let prev: JSONNull?
+    let next: String?
+    let prev: String?
 }
 
 // MARK: - Result

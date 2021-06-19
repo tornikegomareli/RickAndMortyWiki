@@ -9,16 +9,14 @@ import Foundation
 import Alamofire
 
 struct LocationRequest: Requestable {
+  var endpoint: String = "/location"
+  
   typealias Element = CharacterLocations
 
   var param: Parameters?
 
   var httpMethod: HTTPMethod {
     return .get
-  }
-
-  var endpoint: String {
-    return "/location"
   }
 
   var parameterEncoding: ParameterEncoding {

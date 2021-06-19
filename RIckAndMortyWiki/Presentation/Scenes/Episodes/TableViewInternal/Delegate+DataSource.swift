@@ -13,6 +13,11 @@ extension EpisodesViewController: UITableViewDataSource {
     return self.viewModel.dataSource.value.count
   }
   
+  public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let model = viewModel.dataSource.value[indexPath.row]
+    viewModel.didRequestOnRowClick(model: model)
+  }
+  
   public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell")
       as! EpisodeCell
@@ -20,6 +25,11 @@ extension EpisodesViewController: UITableViewDataSource {
     let model = self.viewModel.dataSource.value[indexPath.row]
     cell.episodeNumberLabel.text = "\(indexPath.row + 1)"
     cell.configure(episode: model)
+    if indexPath.row == viewModel.dataSource.value.count - 1 {
+      if viewModel.dataSourceInfo.count > viewModel.dataSource.value.count {
+        viewModel.fetchNextPage()
+      }
+    }
     return cell
   }
 }

@@ -8,20 +8,20 @@
 import Foundation
 
 // MARK: - CharacterInfo
-struct Characters: Codable {
+public struct Characters: Codable {
   let info: CharacterInfo
   let results: [Character]
 }
 
 // MARK: - Info
-struct CharacterInfo: Codable {
+public struct CharacterInfo: Codable {
   let count, pages: Int
   let next: String
   let prev: JSONNull?
 }
 
 // MARK: - Result
-struct Character: Codable {
+public struct Character: Codable {
   let id: Int
   let name: String
   let status: Status

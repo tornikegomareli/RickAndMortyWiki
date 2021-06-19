@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CharacterCell" rowHeight="194" id="KGk-i7-Jjw" customClass="CharacterCell" customModule="RIckAndMortyWiki" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="358" height="194"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="358" height="194"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9t-wf-LCd">
+                        <rect key="frame" x="5" y="5" width="348" height="184"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2rb-da-L75">
+                                <rect key="frame" x="0.0" y="0.0" width="348" height="110.5"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Jrt-B1-Eyc">
+                                <rect key="frame" x="8" y="140" width="137" height="36"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rick Sanches" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytj-eT-0Aw">
+                                        <rect key="frame" x="0.0" y="0.0" width="137" height="19"/>
+                                        <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDc-Be-z7l">
+                                        <rect key="frame" x="0.0" y="19" width="51.5" height="17"/>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDA-AS-Otn">
+                                <rect key="frame" x="332" y="168" width="8" height="8"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="EiJ-zu-ciu"/>
+                                    <constraint firstAttribute="width" constant="8" id="bXn-Vz-pVu"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="n1c-j0-RsP">
+                                <rect key="frame" x="164" y="45" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Jrt-B1-Eyc" firstAttribute="leading" secondItem="A9t-wf-LCd" secondAttribute="leading" constant="8" id="9db-V0-TaZ"/>
+                            <constraint firstAttribute="bottom" secondItem="rDA-AS-Otn" secondAttribute="bottom" constant="8" id="DXb-eS-GXB"/>
+                            <constraint firstItem="2rb-da-L75" firstAttribute="top" secondItem="A9t-wf-LCd" secondAttribute="top" id="EYV-ju-d16"/>
+                            <constraint firstItem="n1c-j0-RsP" firstAttribute="centerX" secondItem="2rb-da-L75" secondAttribute="centerX" id="Eap-WP-eEc"/>
+                            <constraint firstItem="2rb-da-L75" firstAttribute="leading" secondItem="A9t-wf-LCd" secondAttribute="leading" id="ITS-b2-UTy"/>
+                            <constraint firstAttribute="trailing" secondItem="2rb-da-L75" secondAttribute="trailing" id="Jod-2b-uh7"/>
+                            <constraint firstItem="n1c-j0-RsP" firstAttribute="centerY" secondItem="2rb-da-L75" secondAttribute="centerY" id="dcF-iX-Rej"/>
+                            <constraint firstAttribute="trailing" secondItem="rDA-AS-Otn" secondAttribute="trailing" constant="8" id="ltw-jw-vD1"/>
+                            <constraint firstItem="2rb-da-L75" firstAttribute="height" secondItem="A9t-wf-LCd" secondAttribute="height" multiplier="0.6" id="nQV-Od-iyL"/>
+                            <constraint firstAttribute="bottom" secondItem="Jrt-B1-Eyc" secondAttribute="bottom" constant="8" id="sL8-Ym-QPt"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.85491353270000003" green="0.85488128659999996" blue="0.85490310189999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <constraints>
+                    <constraint firstItem="A9t-wf-LCd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="JXz-v0-tyj"/>
+                    <constraint firstAttribute="bottom" secondItem="A9t-wf-LCd" secondAttribute="bottom" constant="5" id="RMT-bM-uua"/>
+                    <constraint firstItem="A9t-wf-LCd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="SPe-Hw-7ck"/>
+                    <constraint firstAttribute="trailing" secondItem="A9t-wf-LCd" secondAttribute="trailing" constant="5" id="u0O-r9-62J"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="activityIndicator" destination="n1c-j0-RsP" id="miM-N9-9TW"/>
+                <outlet property="cardView" destination="A9t-wf-LCd" id="710-xo-h2S"/>
+                <outlet property="characterImageView" destination="2rb-da-L75" id="GOo-Qv-LSb"/>
+                <outlet property="characterLivingStatus" destination="MDc-Be-z7l" id="fvo-X1-DHt"/>
+                <outlet property="characterLivingStatusView" destination="rDA-AS-Otn" id="biU-YZ-vS9"/>
+                <outlet property="characterName" destination="Ytj-eT-0Aw" id="PXo-y4-UTh"/>
+            </connections>
+            <point key="canvasLocation" x="136.23188405797103" y="101.78571428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

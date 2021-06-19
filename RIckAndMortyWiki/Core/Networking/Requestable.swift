@@ -19,7 +19,7 @@ protocol Requestable: URLRequestConvertible {
 
   var basePath: String { get }
 
-  var endpoint: String { get }
+  var endpoint: String { get set }
 
   var httpMethod: HTTPMethod { get }
 
@@ -193,4 +193,5 @@ extension Requestable {
     return request
   }
 }
+
 

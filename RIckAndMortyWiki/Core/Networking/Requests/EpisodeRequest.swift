@@ -11,14 +11,11 @@ import Alamofire
 struct EpisodeRequest: Requestable {
   typealias Element = Episodes
 
+  var endpoint:String = "episode"
   var param: Parameters?
 
   var httpMethod: HTTPMethod {
     return .get
-  }
-
-  var endpoint: String {
-    return "episode"
   }
 
   var parameterEncoding: ParameterEncoding {

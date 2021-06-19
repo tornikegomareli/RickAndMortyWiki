@@ -11,11 +11,17 @@ import Resolver
 
 protocol CharacterRepositoring {
   func getCharacters() -> Observable<CharacterRequest.Element>
+  func getMultipleCharacters(ids:String) -> Observable<CharacterRequest.Element>
 }
 
 class CharacterRepository: CharacterRepositoring {
   @Injected private var restClient: RestClient
+  
   func getCharacters() -> Observable<CharacterRequest.Element> {
     return restClient.fetch(request: CharacterRequest.self)
+  }
+  
+  func getMultipleCharacters(ids: String) -> Observable<CharacterRequest.Element> {
+    return restClient.fetch(request: CharacterRequest.self, withParamsInPath: "\(ids)")
   }
 }
