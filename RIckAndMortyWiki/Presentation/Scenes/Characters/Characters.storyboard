@@ -18,10 +18,10 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detailsPhotoRick" translatesAutoresizingMaskIntoConstraints="NO" id="35Z-dC-jmT">
                                 <rect key="frame" x="0.0" y="-6" width="414" height="224"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xou-3L-Mvb">
-                                <rect key="frame" x="20" y="168" width="394" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xou-3L-Mvb">
+                                <rect key="frame" x="20" y="128" width="394" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="VGI-IB-BMt"/>
+                                    <constraint firstAttribute="height" constant="70" id="VGI-IB-BMt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="27"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -52,7 +52,7 @@
                             <constraint firstItem="Xou-3L-Mvb" firstAttribute="trailing" secondItem="35Z-dC-jmT" secondAttribute="trailing" id="ba9-Uf-qBR"/>
                             <constraint firstItem="Xou-3L-Mvb" firstAttribute="leading" secondItem="5rk-9W-dJO" secondAttribute="leading" constant="20" id="hTd-1F-nQa"/>
                             <constraint firstItem="dGt-98-Pdz" firstAttribute="top" secondItem="5rk-9W-dJO" secondAttribute="top" id="iEg-Kj-tma"/>
-                            <constraint firstItem="Xou-3L-Mvb" firstAttribute="bottom" secondItem="35Z-dC-jmT" secondAttribute="bottom" id="jvF-Yu-Grw"/>
+                            <constraint firstItem="Xou-3L-Mvb" firstAttribute="bottom" secondItem="35Z-dC-jmT" secondAttribute="bottom" constant="-20" id="jvF-Yu-Grw"/>
                             <constraint firstItem="35Z-dC-jmT" firstAttribute="height" secondItem="iNv-Yp-q9t" secondAttribute="height" multiplier="0.25" id="lAH-wh-jpd"/>
                             <constraint firstItem="XSz-JR-Goj" firstAttribute="leading" secondItem="5rk-9W-dJO" secondAttribute="leading" id="xbs-Lh-r5A"/>
                         </constraints>
