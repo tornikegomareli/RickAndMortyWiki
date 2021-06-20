@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XSz-JR-Goj">
-                                <rect key="frame" x="0.0" y="238" width="414" height="658"/>
+                                <rect key="frame" x="0.0" y="274" width="414" height="622"/>
                                 <color key="backgroundColor" red="0.81351202730000005" green="0.81362986559999995" blue="0.81348627809999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGt-98-Pdz">
@@ -38,22 +38,30 @@
                                     <action selector="onDownArrowClick:" destination="FSk-ns-sij" eventType="touchUpInside" id="bj4-1Q-Tx8"/>
                                 </connections>
                             </button>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bPR-z7-b7Y">
+                                <rect key="frame" x="0.0" y="218" width="414" height="56"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5rk-9W-dJO"/>
                         <color key="backgroundColor" red="0.820566833" green="0.82068562509999998" blue="0.82054078580000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="XSz-JR-Goj" secondAttribute="bottom" id="1f9-5x-7fI"/>
+                            <constraint firstItem="XSz-JR-Goj" firstAttribute="top" secondItem="bPR-z7-b7Y" secondAttribute="bottom" id="9rW-P9-YCO"/>
                             <constraint firstItem="XSz-JR-Goj" firstAttribute="trailing" secondItem="5rk-9W-dJO" secondAttribute="trailing" id="C5L-tn-KbM"/>
                             <constraint firstItem="35Z-dC-jmT" firstAttribute="leading" secondItem="5rk-9W-dJO" secondAttribute="leading" id="Jsd-M8-eUZ"/>
                             <constraint firstItem="dGt-98-Pdz" firstAttribute="leading" secondItem="5rk-9W-dJO" secondAttribute="leading" constant="20" id="KIw-ez-j4z"/>
                             <constraint firstItem="35Z-dC-jmT" firstAttribute="top" secondItem="5rk-9W-dJO" secondAttribute="top" constant="-50" id="Ngq-ay-aXE"/>
                             <constraint firstItem="5rk-9W-dJO" firstAttribute="trailing" secondItem="35Z-dC-jmT" secondAttribute="trailing" id="OUU-kT-AUT"/>
-                            <constraint firstItem="XSz-JR-Goj" firstAttribute="top" secondItem="35Z-dC-jmT" secondAttribute="bottom" constant="20" id="Z2Q-kU-aaA"/>
+                            <constraint firstItem="bPR-z7-b7Y" firstAttribute="trailing" secondItem="5rk-9W-dJO" secondAttribute="trailing" id="TuC-G1-p0T"/>
                             <constraint firstItem="Xou-3L-Mvb" firstAttribute="trailing" secondItem="35Z-dC-jmT" secondAttribute="trailing" id="ba9-Uf-qBR"/>
                             <constraint firstItem="Xou-3L-Mvb" firstAttribute="leading" secondItem="5rk-9W-dJO" secondAttribute="leading" constant="20" id="hTd-1F-nQa"/>
                             <constraint firstItem="dGt-98-Pdz" firstAttribute="top" secondItem="5rk-9W-dJO" secondAttribute="top" id="iEg-Kj-tma"/>
                             <constraint firstItem="Xou-3L-Mvb" firstAttribute="bottom" secondItem="35Z-dC-jmT" secondAttribute="bottom" constant="-20" id="jvF-Yu-Grw"/>
                             <constraint firstItem="35Z-dC-jmT" firstAttribute="height" secondItem="iNv-Yp-q9t" secondAttribute="height" multiplier="0.25" id="lAH-wh-jpd"/>
+                            <constraint firstItem="bPR-z7-b7Y" firstAttribute="leading" secondItem="5rk-9W-dJO" secondAttribute="leading" id="lVz-vW-eqR"/>
+                            <constraint firstItem="bPR-z7-b7Y" firstAttribute="top" secondItem="35Z-dC-jmT" secondAttribute="bottom" id="mxc-8q-R2k"/>
                             <constraint firstItem="XSz-JR-Goj" firstAttribute="leading" secondItem="5rk-9W-dJO" secondAttribute="leading" id="xbs-Lh-r5A"/>
                         </constraints>
                     </view>
@@ -61,6 +69,7 @@
                         <outlet property="arrowDown" destination="dGt-98-Pdz" id="VqF-0t-RWw"/>
                         <outlet property="episodeTitle" destination="Xou-3L-Mvb" id="P3D-fx-7yR"/>
                         <outlet property="imageView" destination="35Z-dC-jmT" id="e16-Oo-6lg"/>
+                        <outlet property="searchBar" destination="bPR-z7-b7Y" id="pVQ-qo-POf"/>
                         <outlet property="tableView" destination="XSz-JR-Goj" id="upy-8C-9lN"/>
                     </connections>
                 </viewController>

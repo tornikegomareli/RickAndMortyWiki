@@ -7,11 +7,13 @@
 //
 
 import RxSwift
+import RxCocoa
 
 public class CharactersViewController: BaseViewController, Storyboarded {
   @IBOutlet weak var arrowDown: UIButton!
   @IBOutlet weak var episodeTitle: UILabel!
   @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var tableView: UITableView!
   public var episode:Episode!
   /// Main view model
@@ -24,11 +26,12 @@ public class CharactersViewController: BaseViewController, Storyboarded {
     // MARK: - Lifecycle methods
   public override func viewDidLoad() {
     super.viewDidLoad()
-    var baseNavigationController = self.navigationController as! BaseNavigationController
+    let baseNavigationController = self.navigationController as! BaseNavigationController
     baseNavigationController.hideNavigationBar()
     root: do {
       bind(to: viewModel)
       setup()
+      
       
     }
     
@@ -61,9 +64,30 @@ public class CharactersViewController: BaseViewController, Storyboarded {
   
   /// Private user interface initializer
   private func setup() {
+    configureUI()
     configureUIWithState()
     setupTableView()
     reloadTableView()
+    searchBarThrottleSetup()
+  }
+  
+  private func searchBarThrottleSetup() {
+    searchBar
+      .rx.text
+      .orEmpty
+      .debounce(DispatchTimeInterval.milliseconds(Int(0.5)), scheduler: MainScheduler.instance) // Wait 0.5 for changes.
+        .distinctUntilChanged() // If they didn't occur, check if the new value is the same as old.
+      .subscribe(onNext: { [unowned self] query in
+        if query.count == 0 {
+          self.viewModel.dataSource.accept(self.viewModel.allCharactersData)
+        }
+        self.viewModel.dataSource.accept(self.viewModel.allCharactersData.filter{ $0.name.hasPrefix(query) })
+      })
+      .disposed(by: disposeBag)
+  }
+  
+  private func configureUI() {
+    searchBar.searchBarStyle = .minimal
   }
   
   private func configureUIWithState() {
@@ -97,6 +121,7 @@ public class CharactersViewController: BaseViewController, Storyboarded {
   }
   
   private func didReceive(route: CharactersViewModelRoute) {
+    navigator.requestNavigation(to: route, animated: true)
   }
 
   /// Invoked when deallocated

@@ -23,6 +23,7 @@ public struct CharactersViewModelParams {
 public protocol CharactersViewModelInput {
   func viewDidLoad()
   func viewDidLoad(withParam: Episode)
+  func didRequestNavigationToEpisodesByCharacter(model: MultipleCharacter)
 }
 
 /// Output Protocol
@@ -34,6 +35,7 @@ public protocol CharactersViewModelOutput {
   var route: Observable<CharactersViewModelRoute> { get }
   var params: CharactersViewModelParams { get }
   var dataSource: SubjectRelay<[MultipleCharacter]> { get }
+  var allCharactersData: [MultipleCharacter] { get set }
 }
 
 /// Enum types which will be throwed by action Observable
@@ -44,6 +46,7 @@ public enum CharactersViewModelOutputAction {
 
 /// Enum types which will be throwed by route Observable
 public enum CharactersViewModelRoute {
+  case toEpisodeByCharacter(model: MultipleCharacter)
 }
 
 /// Default View Model Implementation
@@ -51,12 +54,21 @@ public class DefaultCharactersViewModel {
   @Injected private var repository:CharacterRepositoring
   private let actionSubject = PublishSubject<CharactersViewModelOutputAction>()
   private let routeSubject = PublishSubject<CharactersViewModelRoute>()
+  private var allCharactersSource = [MultipleCharacter]()
   public let params: CharactersViewModelParams = CharactersViewModelParams()
   public let dataSource = SubjectRelay<[MultipleCharacter]>(value: [])
 }
 
 /// Derived extension, all the properties will be used by viewController
 extension DefaultCharactersViewModel: CharactersViewModel {
+  public var allCharactersData: [MultipleCharacter] {
+    get {
+      return allCharactersSource
+    }
+    set {
+      allCharactersSource = newValue
+    }
+  }
   public var action: Observable<CharactersViewModelOutputAction> { actionSubject.asObserver() }
   public var route: Observable<CharactersViewModelRoute> { routeSubject.asObserver() }
   public var dataSourceSubject: SubjectRelay<[MultipleCharacter]> { dataSource }
@@ -70,10 +82,11 @@ extension DefaultCharactersViewModel: CharactersViewModel {
   }
   
   private func fetchCharactersByEpisode(episode: Episode) {
-    var ids = episode.characters.getIds()
+    let ids = episode.characters.getIds()
     actionSubject.onNext(.showIndicator)
     _ = repository.getMultipleCharacters(ids: ids)
         .subscribe(onNext: { result in
+          self.allCharactersData = result
           self.actionSubject.onNext(.hideIndicator)
           self.dataSource.accept(result)
         },
@@ -84,5 +97,11 @@ extension DefaultCharactersViewModel: CharactersViewModel {
           self.actionSubject.onNext(.hideIndicator)
         })
     }
+  
+    public func didRequestNavigationToEpisodesByCharacter(model: MultipleCharacter) {
+      routeSubject.onNext(.toEpisodeByCharacter(model: model))
+    }
 }
+
+
 

@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oEx-Rd-oW4">
-                                <rect key="frame" x="87" y="43.5" width="240" height="185"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oEx-Rd-oW4">
+                                <rect key="frame" x="0.0" y="-50" width="414" height="372"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eEN-fE-NVR">
                                 <rect key="frame" x="167.5" y="231" width="79.5" height="82"/>
@@ -43,29 +43,46 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HGd-5a-kXB">
-                                <rect key="frame" x="0.0" y="321" width="414" height="575"/>
+                                <rect key="frame" x="0.0" y="378" width="414" height="518"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Fo-gm-GOb">
+                                <rect key="frame" x="18" y="34" width="50" height="50"/>
+                                <state key="normal" image="arrow-down"/>
+                                <connections>
+                                    <action selector="downArrayClick:" destination="8ga-Ae-KyF" eventType="touchUpInside" id="fLZ-Bk-trM"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="FRj-W8-1SO">
+                                <rect key="frame" x="0.0" y="322" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SfK-16-w92"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oEx-Rd-oW4" firstAttribute="centerX" secondItem="SfK-16-w92" secondAttribute="centerX" id="8P7-CN-ZHO"/>
-                            <constraint firstItem="oEx-Rd-oW4" firstAttribute="centerY" secondItem="SfK-16-w92" secondAttribute="centerY" multiplier="0.3" id="Idd-8y-jTb"/>
-                            <constraint firstItem="HGd-5a-kXB" firstAttribute="leading" secondItem="SfK-16-w92" secondAttribute="leading" id="P6Q-PR-FbF"/>
-                            <constraint firstItem="eEN-fE-NVR" firstAttribute="centerX" secondItem="oEx-Rd-oW4" secondAttribute="centerX" id="Q0t-ZO-aM5"/>
-                            <constraint firstAttribute="bottom" secondItem="HGd-5a-kXB" secondAttribute="bottom" id="WpW-zY-6m5"/>
-                            <constraint firstItem="oEx-Rd-oW4" firstAttribute="width" secondItem="eA6-LJ-8Ax" secondAttribute="width" multiplier="0.57971" id="gh6-VE-sUi"/>
-                            <constraint firstItem="HGd-5a-kXB" firstAttribute="trailing" secondItem="SfK-16-w92" secondAttribute="trailing" id="jae-kY-Ox5"/>
-                            <constraint firstItem="eEN-fE-NVR" firstAttribute="centerY" secondItem="oEx-Rd-oW4" secondAttribute="centerY" multiplier="2" id="lCw-MD-Prs"/>
-                            <constraint firstItem="HGd-5a-kXB" firstAttribute="top" secondItem="eEN-fE-NVR" secondAttribute="bottom" constant="8" symbolic="YES" id="pFG-mc-Lcz"/>
-                            <constraint firstItem="oEx-Rd-oW4" firstAttribute="height" secondItem="eA6-LJ-8Ax" secondAttribute="height" multiplier="0.206473" id="vsn-d7-2vo"/>
+                            <constraint firstItem="eEN-fE-NVR" firstAttribute="centerX" secondItem="oEx-Rd-oW4" secondAttribute="centerX" id="0ba-g8-Mcs"/>
+                            <constraint firstItem="FRj-W8-1SO" firstAttribute="top" secondItem="oEx-Rd-oW4" secondAttribute="bottom" id="1lV-uo-tam"/>
+                            <constraint firstItem="1Fo-gm-GOb" firstAttribute="leading" secondItem="SfK-16-w92" secondAttribute="leading" constant="18" id="8kg-c1-IYf"/>
+                            <constraint firstItem="oEx-Rd-oW4" firstAttribute="trailing" secondItem="SfK-16-w92" secondAttribute="trailing" id="A6M-Xh-sgb"/>
+                            <constraint firstItem="HGd-5a-kXB" firstAttribute="trailing" secondItem="SfK-16-w92" secondAttribute="trailing" id="Bvm-R5-q6h"/>
+                            <constraint firstItem="FRj-W8-1SO" firstAttribute="leading" secondItem="SfK-16-w92" secondAttribute="leading" id="MDt-wa-3wj"/>
+                            <constraint firstItem="HGd-5a-kXB" firstAttribute="leading" secondItem="SfK-16-w92" secondAttribute="leading" id="Rfg-79-uRG"/>
+                            <constraint firstAttribute="bottom" secondItem="HGd-5a-kXB" secondAttribute="bottom" id="S2I-H9-8h5"/>
+                            <constraint firstItem="HGd-5a-kXB" firstAttribute="top" secondItem="FRj-W8-1SO" secondAttribute="bottom" id="YTv-a7-1gF"/>
+                            <constraint firstItem="oEx-Rd-oW4" firstAttribute="leading" secondItem="SfK-16-w92" secondAttribute="leading" id="Ztc-1N-vuR"/>
+                            <constraint firstItem="FRj-W8-1SO" firstAttribute="trailing" secondItem="SfK-16-w92" secondAttribute="trailing" id="d9Y-qr-YoY"/>
+                            <constraint firstItem="SfK-16-w92" firstAttribute="top" secondItem="1Fo-gm-GOb" secondAttribute="top" constant="10" id="gHd-8G-O83"/>
+                            <constraint firstItem="oEx-Rd-oW4" firstAttribute="top" secondItem="eA6-LJ-8Ax" secondAttribute="top" constant="-50" id="kEa-j1-7b5"/>
+                            <constraint firstItem="eEN-fE-NVR" firstAttribute="centerY" secondItem="oEx-Rd-oW4" secondAttribute="centerY" multiplier="2" id="wDi-G3-aqB"/>
+                            <constraint firstItem="oEx-Rd-oW4" firstAttribute="height" secondItem="eA6-LJ-8Ax" secondAttribute="height" multiplier="0.415179" id="z3r-oP-feX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="characterGender" destination="eyn-aW-EzH" id="b9A-HL-zCA"/>
                         <outlet property="characterImageView" destination="oEx-Rd-oW4" id="l3Z-MA-pil"/>
                         <outlet property="characterStatus" destination="Arh-ID-JFM" id="eei-6j-nk7"/>
+                        <outlet property="searchBar" destination="FRj-W8-1SO" id="vSF-Ka-pfE"/>
                         <outlet property="tableView" destination="HGd-5a-kXB" id="hDD-oY-8A5"/>
                     </connections>
                 </viewController>
@@ -75,6 +92,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow-down" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

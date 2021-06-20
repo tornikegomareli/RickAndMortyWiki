@@ -79,7 +79,7 @@
             <connections>
                 <outlet property="activityIndicator" destination="n1c-j0-RsP" id="miM-N9-9TW"/>
                 <outlet property="cardView" destination="A9t-wf-LCd" id="710-xo-h2S"/>
-                <outlet property="characterImageView" destination="2rb-da-L75" id="GOo-Qv-LSb"/>
+                <outlet property="characterImageView" destination="2rb-da-L75" id="sYA-is-eLx"/>
                 <outlet property="characterLivingStatus" destination="MDc-Be-z7l" id="fvo-X1-DHt"/>
                 <outlet property="characterLivingStatusView" destination="rDA-AS-Otn" id="biU-YZ-vS9"/>
                 <outlet property="characterName" destination="Ytj-eT-0Aw" id="PXo-y4-UTh"/>

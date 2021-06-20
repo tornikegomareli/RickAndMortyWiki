@@ -16,5 +16,6 @@ extension Resolver: ResolverRegistering {
     Resolver.register { CharacterRepository() as CharacterRepositoring }.scope(.shared)
     Resolver.register { EpisodeRepository() as EpisodeRepositoring }.scope(.shared)
     Resolver.register { LocationRepository() as LocationRepositoring }.scope(.shared)
+    Resolver.register { MultipleEpisodeRepository() as MultipleRepositoring }.scope(.shared)
   }
 }

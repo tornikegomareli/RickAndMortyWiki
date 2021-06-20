@@ -24,6 +24,7 @@ public struct EpisodesByCharacterViewModelParams {
 public protocol EpisodesByCharacterViewModelInput {
   func viewDidLoad()
   func didRequestFetchByCharacter(ids: [String])
+  func didRequestOnRowClick(model: Episode)
 }
 
 /// Output Protocol
@@ -35,6 +36,8 @@ public protocol EpisodesByCharacterViewModelOutput {
   var route: Observable<EpisodesByCharacterViewModelRoute> { get }
   var params: EpisodesByCharacterViewModelParams { get }
   var dataSource: SubjectRelay<[Episode]> { get }
+  var allEpisodesData: [Episode] { get }
+
 }
 
 /// Enum types which will be throwed by action Observable
@@ -45,12 +48,14 @@ public enum EpisodesByCharacterViewModelOutputAction {
 
 /// Enum types which will be throwed by route Observable
 public enum EpisodesByCharacterViewModelRoute {
+  case routeToCharacters(model: Episode)
 }
 
 /// Default View Model Implementation
 public class DefaultEpisodesByCharacterViewModel {
-  @Injected var episodeRepository: EpisodeRepositoring
+  @Injected var episodeRepository: MultipleRepositoring
   private let actionSubject = PublishSubject<EpisodesByCharacterViewModelOutputAction>()
+  private var allEpisodeDataSource = [Episode]()
   private let routeSubject = PublishSubject<EpisodesByCharacterViewModelRoute>()
   public let params: EpisodesByCharacterViewModelParams = EpisodesByCharacterViewModelParams()
   public let dataSourceSubject: SubjectRelay<[Episode]> = SubjectRelay<[Episode]>(value: [])
@@ -60,6 +65,7 @@ public class DefaultEpisodesByCharacterViewModel {
 extension DefaultEpisodesByCharacterViewModel: EpisodesByCharacterViewModel {
   public var action: Observable<EpisodesByCharacterViewModelOutputAction> { actionSubject.asObserver() }
   public var route: Observable<EpisodesByCharacterViewModelRoute> { routeSubject.asObserver() }
+  public var allEpisodesData: [Episode] { allEpisodeDataSource }
   public var dataSource: SubjectRelay<[Episode]> {  dataSourceSubject }
   
   public func viewDidLoad() {
@@ -69,12 +75,16 @@ extension DefaultEpisodesByCharacterViewModel: EpisodesByCharacterViewModel {
     actionSubject.onNext(.showIndicator)
     _ = episodeRepository.getEpisodesByIds(ids: ids)
       .subscribe { episodes in
+        self.allEpisodeDataSource = episodes
         self.actionSubject.onNext(.hideIndicator)
-        self.dataSource.accept(episodes.results)
+        self.dataSource.accept(episodes)
       } onError: { error in
         print(error)
       }
   }
   
+  public func didRequestOnRowClick(model: Episode) {
+    routeSubject.onNext(.routeToCharacters(model: model))
+  }
 }
 

@@ -57,6 +57,8 @@
 		E6C9A809267B7F170094F0F9 /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C9A807267B7F170094F0F9 /* EpisodeCell.xib */; };
 		E6C9A80D267B7F9B0094F0F9 /* EpisodesDelegate+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C9A80C267B7F9B0094F0F9 /* EpisodesDelegate+DataSource.swift */; };
 		E6C9A811267B8B2F0094F0F9 /* StretchyTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C9A810267B8B2F0094F0F9 /* StretchyTableViewHeaderView.swift */; };
+		E6D1BE5A267FC8A20038B8A9 /* MultipleEpisodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1BE59267FC8A20038B8A9 /* MultipleEpisodeRequest.swift */; };
+		E6D1BE5E267FD1A00038B8A9 /* LazyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1BE5D267FD1A00038B8A9 /* LazyImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +116,8 @@
 		E6C9A807267B7F170094F0F9 /* EpisodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
 		E6C9A80C267B7F9B0094F0F9 /* EpisodesDelegate+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EpisodesDelegate+DataSource.swift"; sourceTree = "<group>"; };
 		E6C9A810267B8B2F0094F0F9 /* StretchyTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyTableViewHeaderView.swift; sourceTree = "<group>"; };
+		E6D1BE59267FC8A20038B8A9 /* MultipleEpisodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleEpisodeRequest.swift; sourceTree = "<group>"; };
+		E6D1BE5D267FD1A00038B8A9 /* LazyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				E65699BD267E1CE300CE5B96 /* TableViewInternal */,
+				E65699BE267E1CFF00CE5B96 /* CharactersDelegate+Datasource.swift */,
 				E65699B2267E17C900CE5B96 /* Cells */,
 				E65699A7267E107D00CE5B96 /* CharactersNavigator.swift */,
 				E65699A8267E107D00CE5B96 /* CharactersViewController.swift */,
@@ -238,7 +243,6 @@
 		E65699BD267E1CE300CE5B96 /* TableViewInternal */ = {
 			isa = PBXGroup;
 			children = (
-				E65699BE267E1CFF00CE5B96 /* CharactersDelegate+Datasource.swift */,
 			);
 			path = TableViewInternal;
 			sourceTree = "<group>";
@@ -304,6 +308,7 @@
 				E6AA9F0D267A68FB00C5E79E /* CharacterRequest.swift */,
 				E6AA9F11267A69A400C5E79E /* EpisodeRequest.swift */,
 				E6AA9F14267A6ABC00C5E79E /* CharacterLocationRequest.swift */,
+				E6D1BE59267FC8A20038B8A9 /* MultipleEpisodeRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 		E6C9A7DF267B68E00094F0F9 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				E6D1BE5C267FD1960038B8A9 /* Cache */,
 				E65699CB267E316200CE5B96 /* Helpers */,
 				E6C83F6F267B9AFA00CBC900 /* UIKIT+Extensions */,
 				E65699CD267E328E00CE5B96 /* PrimitiveTypes+Extensions */,
@@ -450,6 +456,14 @@
 				E6C9A80C267B7F9B0094F0F9 /* EpisodesDelegate+DataSource.swift */,
 			);
 			path = TableViewInternal;
+			sourceTree = "<group>";
+		};
+		E6D1BE5C267FD1960038B8A9 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				E6D1BE5D267FD1A00038B8A9 /* LazyImageView.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -573,6 +587,7 @@
 				E6AA9F15267A6ABC00C5E79E /* CharacterLocationRequest.swift in Sources */,
 				E6C9A7DB267B68AA0094F0F9 /* EpisodesViewController.swift in Sources */,
 				E6C9A7E3267B69090094F0F9 /* Navigator.swift in Sources */,
+				E6D1BE5A267FC8A20038B8A9 /* MultipleEpisodeRequest.swift in Sources */,
 				E6C9A7DC267B68AA0094F0F9 /* EpisodesViewModel.swift in Sources */,
 				E6C9A7D0267B3DB50094F0F9 /* EpisodeRepository.swift in Sources */,
 				E6826E85267F63EB00BDDB30 /* EpisodesByCharacterDelegate+Datasource.swift in Sources */,
@@ -597,6 +612,7 @@
 				E6AA9F0B267A684A00C5E79E /* CharacterLocations.swift in Sources */,
 				E6AA9EF9267A63CC00C5E79E /* RestClient.swift in Sources */,
 				E65699C3267E30E600CE5B96 /* UIViewController+Extensions.swift in Sources */,
+				E6D1BE5E267FD1A00038B8A9 /* LazyImageView.swift in Sources */,
 				E6C9A7E7267B69250094F0F9 /* Storyboarded.swift in Sources */,
 				E6AA9F12267A69A400C5E79E /* EpisodeRequest.swift in Sources */,
 				E6C83F76267B9DCC00CBC900 /* UIView+Extension.swift in Sources */,

@@ -38,7 +38,7 @@ class CharacterCell: UITableViewCell {
           print("error--->",error)
         }
     }
-    characterImageView.image = UIImage(named: model.image)
+    
     characterName.text = model.name
 
     characterLivingStatus.text = model.status

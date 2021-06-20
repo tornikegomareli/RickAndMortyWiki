@@ -10,7 +10,6 @@ import RxSwift
 
 protocol EpisodeRepositoring {
   func getEpisodes() -> Observable<EpisodeRequest.Element>
-  func getEpisodesByIds(ids: [String]) -> Observable<EpisodeRequest.Element>
   func netPage(page:String) -> Observable<EpisodeRequest.Element>
 }
 
@@ -20,14 +19,23 @@ class EpisodeRepository: EpisodeRepositoring {
     return restClient.fetch(request: EpisodeRequest.self)
   }
   
-  func getEpisodesByIds(ids: [String]) -> Observable<EpisodeRequest.Element> {
-    let episodeIds = ids.parseEpisodeId()
-    return restClient.fetch(request: EpisodeRequest.self, withParamsInPath: episodeIds)
-  }
-  
   func netPage(page: String) -> Observable<EpisodeRequest.Element> {
     return restClient.fetch(request: EpisodeRequest.self, withParamsInPath: page)
   }
 }
+
+protocol MultipleRepositoring {
+  func getEpisodesByIds(ids: [String]) -> Observable<MultipleEpisodeRequest.Element>
+}
+
+class MultipleEpisodeRepository: MultipleRepositoring {
+  @Injected private var restClient: RestClient
+
+  func getEpisodesByIds(ids: [String]) -> Observable<MultipleEpisodeRequest.Element> {
+    let episodeIds = ids.parseEpisodeId()
+    return restClient.fetch(request: MultipleEpisodeRequest.self, withParamsInPath: episodeIds)
+  }
+}
+
 
 

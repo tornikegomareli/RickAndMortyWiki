@@ -33,3 +33,5 @@ public struct Episode: Codable {
         case episode, characters, url, created
     }
 }
+
+typealias MultipleEpisodes = [Episode]

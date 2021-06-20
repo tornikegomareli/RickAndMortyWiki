@@ -17,16 +17,23 @@ extension EpisodesByCharacterViewController: UITableViewDataSource {
       as! EpisodeCell
     
     let model = self.viewModel.dataSource.value[indexPath.row]
-  
-    cell.configure(episode: model)
     
+    cell.episodeNumberLabel.text = "\(indexPath.row + 1)"
+    cell.configure(episode: model)
+   
+
     return cell
   }
 }
 
 extension EpisodesByCharacterViewController: UITableViewDelegate {
   public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 300
+    return 200
+  }
+  
+  public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let model = viewModel.dataSource.value[indexPath.row]
+    viewModel.didRequestOnRowClick(model: model)
   }
 }
 
