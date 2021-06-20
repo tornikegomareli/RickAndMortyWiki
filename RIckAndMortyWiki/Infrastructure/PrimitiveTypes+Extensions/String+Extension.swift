@@ -20,6 +20,20 @@ extension Array where Element == String {
     idsSeperatedbyComma.remove(at: idsSeperatedbyComma.lastIndex(of: idsSeperatedbyComma.last!)!)
     return idsSeperatedbyComma
   }
+  
+  func parseEpisodeId() -> String {
+    var idsSeperatedbyComma: String = ""
+    self.forEach { id in
+      let allSlashSubStrings = id.components(separatedBy: "/")
+      let last = allSlashSubStrings.last
+      if let safeLast = last {
+        idsSeperatedbyComma.append("\(safeLast),")
+      }
+    }
+
+    idsSeperatedbyComma.remove(at: idsSeperatedbyComma.lastIndex(of: idsSeperatedbyComma.last!)!)
+    return idsSeperatedbyComma
+  }
 }
 
 extension String {
@@ -31,4 +45,8 @@ extension String {
     }
     return ""
   }
+}
+
+extension String {
+  
 }

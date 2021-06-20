@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Episodes By Character View Controller-->
+        <scene sceneID="KNh-da-ZQu">
+            <objects>
+                <viewController storyboardIdentifier="EpisodesByCharacterViewController" id="8ga-Ae-KyF" customClass="EpisodesByCharacterViewController" customModule="RIckAndMortyWiki" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eA6-LJ-8Ax">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oEx-Rd-oW4">
+                                <rect key="frame" x="87" y="43.5" width="240" height="185"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eEN-fE-NVR">
+                                <rect key="frame" x="167.5" y="231" width="79.5" height="82"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arh-ID-JFM">
+                                        <rect key="frame" x="0.0" y="0.0" width="53" height="22"/>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgt-hU-2PH">
+                                        <rect key="frame" x="0.0" y="30" width="79.5" height="22"/>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyn-aW-EzH">
+                                        <rect key="frame" x="0.0" y="60" width="79.5" height="22"/>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HGd-5a-kXB">
+                                <rect key="frame" x="0.0" y="321" width="414" height="575"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SfK-16-w92"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oEx-Rd-oW4" firstAttribute="centerX" secondItem="SfK-16-w92" secondAttribute="centerX" id="8P7-CN-ZHO"/>
+                            <constraint firstItem="oEx-Rd-oW4" firstAttribute="centerY" secondItem="SfK-16-w92" secondAttribute="centerY" multiplier="0.3" id="Idd-8y-jTb"/>
+                            <constraint firstItem="HGd-5a-kXB" firstAttribute="leading" secondItem="SfK-16-w92" secondAttribute="leading" id="P6Q-PR-FbF"/>
+                            <constraint firstItem="eEN-fE-NVR" firstAttribute="centerX" secondItem="oEx-Rd-oW4" secondAttribute="centerX" id="Q0t-ZO-aM5"/>
+                            <constraint firstAttribute="bottom" secondItem="HGd-5a-kXB" secondAttribute="bottom" id="WpW-zY-6m5"/>
+                            <constraint firstItem="oEx-Rd-oW4" firstAttribute="width" secondItem="eA6-LJ-8Ax" secondAttribute="width" multiplier="0.57971" id="gh6-VE-sUi"/>
+                            <constraint firstItem="HGd-5a-kXB" firstAttribute="trailing" secondItem="SfK-16-w92" secondAttribute="trailing" id="jae-kY-Ox5"/>
+                            <constraint firstItem="eEN-fE-NVR" firstAttribute="centerY" secondItem="oEx-Rd-oW4" secondAttribute="centerY" multiplier="2" id="lCw-MD-Prs"/>
+                            <constraint firstItem="HGd-5a-kXB" firstAttribute="top" secondItem="eEN-fE-NVR" secondAttribute="bottom" constant="8" symbolic="YES" id="pFG-mc-Lcz"/>
+                            <constraint firstItem="oEx-Rd-oW4" firstAttribute="height" secondItem="eA6-LJ-8Ax" secondAttribute="height" multiplier="0.206473" id="vsn-d7-2vo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="characterGender" destination="eyn-aW-EzH" id="b9A-HL-zCA"/>
+                        <outlet property="characterImageView" destination="oEx-Rd-oW4" id="l3Z-MA-pil"/>
+                        <outlet property="characterStatus" destination="Arh-ID-JFM" id="eei-6j-nk7"/>
+                        <outlet property="tableView" destination="HGd-5a-kXB" id="hDD-oY-8A5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qZL-oj-h7o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="147.82608695652175" y="87.723214285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
